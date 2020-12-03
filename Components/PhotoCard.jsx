@@ -1,14 +1,14 @@
-import Image from 'next/image';
 import React from 'react';
+import Image from 'next/image';
 
 const PhotoCard = ({ thumbnailUrl, title, id }) => {
   return (
-    <div className="card">
-      <h5>{id}</h5>
+    <div>
       <div>
-        <Image src={thumbnailUrl} width={150} height={150}></Image>
+        <Image src={thumbnailUrl} alt={title} height={150} width={150} />
       </div>
-      <h1>{title}</h1>
+      <h5>Id: {id}</h5>
+      <h4>Title: {title}</h4>
     </div>
   );
 };

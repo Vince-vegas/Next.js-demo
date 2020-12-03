@@ -1,12 +1,18 @@
 import React from 'react';
 import PhotoCard from '../../Components/PhotoCard';
 
-const Photos = ({ data }) => {
+const Photos = (props) => {
   return (
     <div className="container">
       <div className="row">
-        {data.map(({ id, ...otherProps }) => {
-          return <PhotoCard key={id} {...otherProps} />;
+        {props.photos.map((item) => {
+          return (
+            <PhotoCard
+              key={item.id}
+              thumbnailUrl={item.thumbnailUrl}
+              title={item.title}
+            />
+          );
         })}
       </div>
     </div>
@@ -14,14 +20,13 @@ const Photos = ({ data }) => {
 };
 
 export async function getStaticProps() {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/photos`);
+  const res = await fetch('https://jsonplaceholder.typicode.com/photos');
   const data = await res.json();
 
   return {
     props: {
-      data,
+      photos: data,
     },
   };
 }
-
 export default Photos;

@@ -30,7 +30,8 @@ a {
   flex-basis: 30%;
   padding: 15px;
   border-radius: 3px;
-  box-shadow: 2px 2px 5px #999;
+  box-shadow: 1px 0px 9px 5px #e2e3e4;
+  margin-bottom: 12px;
 }
 
 a {
